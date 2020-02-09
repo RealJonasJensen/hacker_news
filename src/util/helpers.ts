@@ -9,3 +9,10 @@ export function timeConverter(UNIX_timestamp: number): string{
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
     return time;
   }
+
+  export function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}

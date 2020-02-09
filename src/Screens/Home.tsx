@@ -4,6 +4,9 @@ import React, { useEffect, useCallback } from 'react';
 // Modules
 import { useSelector, useDispatch } from "react-redux";
 
+// Helpers
+import { sortByKey } from "../util/helpers"
+
 // Actions
 import * as actions from "../Redux/actions/actionTypes";
 
@@ -46,7 +49,7 @@ const App: React.FC = () => {
     // Content
     let content = null;
 
-    const newsItems = newsProps.stories.map(item => {
+    const newsItems = sortByKey(newsProps.stories, "score").reverse().map(item => {
         return <SingleStory story={item} key={item.id} />
     })
 
